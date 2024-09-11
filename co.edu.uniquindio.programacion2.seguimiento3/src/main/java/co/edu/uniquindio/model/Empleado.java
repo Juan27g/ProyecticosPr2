@@ -1,11 +1,13 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.model;
 
+
+import co.edu.uniquindio.model.builder.EmpleadoBuilder;
 
 /**
  *
  * Clase Empleado
  */
-public abstract class Empleado {
+public class Empleado {
     private String nombre;
     private String idEmpleado;
     private Departamento departamento;
@@ -45,5 +47,10 @@ public abstract class Empleado {
     }
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
+    }
+
+    public static EmpleadoBuilder empleadoBuilder(){
+        return new EmpleadoBuilder();
+
     }
 }

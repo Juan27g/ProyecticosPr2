@@ -1,4 +1,7 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.model;
+
+import co.edu.uniquindio.model.builder.GerenteBuilder;
+import co.edu.uniquindio.services.Contribuyente;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,5 +104,9 @@ public class Gerente extends Empleado implements Contribuyente {
     @Override
     public void contribuir() {
         System.out.println("Gerente contribuye a la planificación y ejecución de proyectos.");
+    }
+
+    public  static GerenteBuilder gerentebuilder(){
+        return new GerenteBuilder();
     }
 }

@@ -1,4 +1,7 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.model;
+
+import co.edu.uniquindio.model.builder.TecnicoBuilder;
+import co.edu.uniquindio.services.Contribuyente;
 
 /**
  * La clase {@code Tecnico} extiende la clase {@code Empleado} e implementa la interfaz {@code Contribuyente}.
@@ -48,5 +51,9 @@ public class Tecnico extends Empleado implements Contribuyente {
     @Override
     public void contribuir() {
         System.out.println("Técnico contribuye con habilidades técnicas en proyectos.");
+    }
+
+    public static TecnicoBuilder tecnicobuilder(){
+        return new TecnicoBuilder();
     }
 }
