@@ -1,5 +1,7 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.model.builder.ProyetoBuiler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +72,10 @@ public class Proyecto {
      */
     public String generarResumen() {
         return "Resumen del proyecto " + nombre;
+    }
+
+    public static ProyetoBuiler proyetoBuiler() {
+        return new ProyetoBuiler();
     }
 
 }

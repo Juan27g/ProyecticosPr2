@@ -22,12 +22,14 @@ public class ProyetoBuiler {
         return empleadosAsignados;
     }
 
-    public void setNombre(String nombre) {
+    public ProyetoBuiler setNombre(String nombre) {
         this.nombre = nombre;
+        return this;
     }
 
-    public void setCodigo(String codigo) {
+    public ProyetoBuiler setCodigo(String codigo) {
         this.codigo = codigo;
+        return this;
     }
 
     public void setEmpleadosAsignados(List<Empleado> empleadosAsignados) {
