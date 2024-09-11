@@ -3,33 +3,38 @@ package co.edu.uniquindio.model.builder;
 import co.edu.uniquindio.model.Departamento;
 import co.edu.uniquindio.model.Empleado;
 
-public class EmpleadoBuilder {
-    private String nombre;
-    private String idEmpleado;
-    private Departamento departamento;
+public class EmpleadoBuilder<T extends EmpleadoBuilder<T>> {
 
-    public String nombre(){
-        return nombre;
-    }
-    public String idEmpleado(){
-        return idEmpleado;
-    }
-    public Departamento departamento(){
-        return departamento;
-    }
-    public EmpleadoBuilder setNombre(String nombre){
+    protected String nombre;
+    protected String idEmpleado;
+    protected Departamento departamento;
+
+    public T nombre(String nombre) {
         this.nombre = nombre;
-        return this;
+        return self ();
     }
-    public EmpleadoBuilder setIdEmpleado(String idEmpleado){
+
+    public T id(String idEmpleado) {
         this.idEmpleado = idEmpleado;
-        return this;
+        return self ();
     }
-    public EmpleadoBuilder setDepartamento(Departamento departamento){
+
+    public T departamento(Departamento departamento) {
         this.departamento = departamento;
-        return this;
+        return self ();
     }
-    public Empleado build(){
-        return new Empleado(nombre, idEmpleado, departamento);
+
+    @SuppressWarnings("unchecked")
+    protected T self() {
+        return (T) this;
+    }
+
+    public Empleado build() {
+        return new Empleado(nombre, idEmpleado, departamento) {
+            @Override
+            public void contribuir() {
+
+            }
+        };
     }
 }

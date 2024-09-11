@@ -7,7 +7,7 @@ import co.edu.uniquindio.model.builder.EmpleadoBuilder;
  *
  * Clase Empleado
  */
-public class Empleado {
+public abstract class Empleado {
     private String nombre;
     private String idEmpleado;
     private Departamento departamento;
@@ -53,4 +53,6 @@ public class Empleado {
         return new EmpleadoBuilder();
 
     }
+
+    public abstract void contribuir();
 }
