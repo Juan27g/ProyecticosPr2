@@ -2,6 +2,7 @@ package co.edu.uniquindio.model;
 
 import co.edu.uniquindio.model.builder.GerenteBuilder;
 import co.edu.uniquindio.services.Contribuyente;
+import co.edu.uniquindio.services.IPrototypeGerente;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * La clase {@code Gerente} extiende la clase {@code Empleado} e implementa la interfaz {@code Contribuyente}.
  */
-public class Gerente extends Empleado implements Contribuyente {
+public class Gerente extends Empleado implements Contribuyente, IPrototypeGerente {
 
     /**
      * Lista de proyectos gestionados por el gerente.
@@ -108,5 +109,16 @@ public class Gerente extends Empleado implements Contribuyente {
 
     public  static GerenteBuilder gerentebuilder(){
         return new GerenteBuilder();
+    }
+
+    @Override
+    public IPrototypeGerente clone (){
+        Gerente gerente = null;
+        try{
+            gerente = (Gerente) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return gerente;
     }
 }
