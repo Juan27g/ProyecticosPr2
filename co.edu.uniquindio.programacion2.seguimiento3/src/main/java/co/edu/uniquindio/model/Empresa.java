@@ -1,12 +1,12 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.services.ICrudDepartamento;
 import co.edu.uniquindio.services.ICrudProyecto;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class Empresa implements ICrudProyecto {
+public class Empresa implements ICrudProyecto, ICrudDepartamento {
     private String nombre;
 
     private List<Empleado> listaEmpleados = new ArrayList <Empleado>();
@@ -79,22 +79,89 @@ public class Empresa implements ICrudProyecto {
     }
 
     @Override
-    public boolean updateProyecto() {
+    public boolean updateProyecto(String nombre, String codigo) {
+        for (Proyecto proyecto : listaProyectos) {
+            if (proyecto.getNombre().equals(nombre) && proyecto.getCodigo().equals(codigo)){
+                proyecto.setNombre(nombre);
+                proyecto.setCodigo(codigo);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
-    public boolean deleteProyecto() {
+    public boolean deleteProyecto(String codigo) {
+        for (Proyecto proyecto : listaProyectos) {
+            if (proyecto.getCodigo().equals(codigo)) {
+                listaProyectos.remove(proyecto);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
-    public Proyecto getProyecto() {
+    public Proyecto getProyecto(String codigo) {
+        for (Proyecto proyecto : listaProyectos){
+            if (proyecto.getCodigo().equals(codigo)){
+                return proyecto;
+            }
+        }
         return null;
     }
 
     @Override
     public ArrayList<Proyecto> getProyectos() {
+        return new ArrayList(listaProyectos);
+    }
+
+//ICrud Departamento
+    @Override
+    public boolean createDepartamento(String nombre, String codigo) {
+        if (!verificarDepartamentoRepetido(nombre)){
+            Departamento departamento = Departamento.departamentobuilder().setNombre(nombre).setCodigo(codigo).build();
+            listaDepartamentos.add(departamento);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateDepartamento(String nombre, String codigo) {
+        for (Departamento departamento : listaDepartamentos){
+            if (departamento.getNombre().equals(nombre) && departamento.getCodigo().equals(codigo)){
+                departamento.setNombre(nombre);
+                departamento.setCodigo(codigo);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteDepartamento(String codigo) {
+        for (Departamento departamento : listaDepartamentos){
+            if (departamento.getCodigo().equals(codigo)){
+                listaDepartamentos.remove(departamento);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Departamento getDepartamento(String codigo) {
+        for (Departamento departamento : listaDepartamentos){
+            if (departamento.getCodigo().equals(codigo)){
+                return departamento;
+            }
+        }
         return null;
+    }
+
+    @Override
+    public List<Departamento> getDepartamentos() {
+        return  new ArrayList(listaDepartamentos);
     }
 }
