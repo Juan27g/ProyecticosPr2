@@ -1,8 +1,10 @@
 package co.edu.uniquindio.services;
 
 import co.edu.uniquindio.factory.ModelFactory;
+import co.edu.uniquindio.model.Departamento;
 import co.edu.uniquindio.model.Empleado;
 import co.edu.uniquindio.model.Gerente;
+import co.edu.uniquindio.model.Proyecto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +55,14 @@ public class MainEmpresa {
             System.out.println("Se encontro la lista de proyectos");
             System.out.println(modelFactory.getProyectos());
         }
+    }
+
+    private static void ejemploClonarAsignar(ModelFactory modelFactory) {
+        Proyecto proyectoE = Proyecto.proyetoBuiler().setNombre("UQ").setCodigo("9271").build();
+        proyectoE.clone();
+
+
+
+        
     }
 }

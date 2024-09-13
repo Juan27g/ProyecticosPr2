@@ -4,6 +4,7 @@ import co.edu.uniquindio.model.builder.DepartamentoBuilder;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Clase Departamento
@@ -12,6 +13,7 @@ public class Departamento {
     private String nombre;
     private String codigo;
     private Collection<Empleado> listaEmpleados;
+    private List<Proyecto> proyectosAsignados = new ArrayList<Proyecto>();
 
 
     // Constructor
@@ -26,6 +28,7 @@ public class Departamento {
         this.nombre = nombre;
         this.codigo = codigo;
         this.listaEmpleados = new ArrayList<>();
+        this.proyectosAsignados = new ArrayList<>();
     }
 
     /**
@@ -51,6 +54,13 @@ public class Departamento {
         return listaEmpleados;
     }
 
+    public void setListaEmpleados(Collection<Empleado> listaEmpleados) {
+        this.listaEmpleados = listaEmpleados;
+    }
+    public List<Proyecto> getProyectosAsignados() {
+        return proyectosAsignados;
+    }
+
     /**
      * Agrega un empleado a la lista de empleados del departamento.
      *
@@ -62,6 +72,16 @@ public class Departamento {
 
     public static DepartamentoBuilder departamentobuilder() {
         return new DepartamentoBuilder();
+    }
+
+
+    /**
+     * Metodo para clonar un proyecto existente y asignarlo a un departamento.
+     *
+     */
+    public void clonarAsignar(Proyecto proyecto) {
+        proyecto.clone();
+        this.proyectosAsignados.add(proyecto);
     }
 }
 
