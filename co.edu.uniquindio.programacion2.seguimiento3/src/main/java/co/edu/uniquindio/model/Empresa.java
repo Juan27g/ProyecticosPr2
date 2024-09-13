@@ -1,12 +1,14 @@
 package co.edu.uniquindio.model;
 
 import co.edu.uniquindio.services.ICrudDepartamento;
+import co.edu.uniquindio.services.ICrudGerente;
 import co.edu.uniquindio.services.ICrudProyecto;
+import co.edu.uniquindio.services.ICrudTecnico;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Empresa implements ICrudProyecto, ICrudDepartamento {
+public class Empresa implements ICrudProyecto, ICrudDepartamento, ICrudGerente, ICrudTecnico {
     private String nombre;
 
     private List<Empleado> listaEmpleados = new ArrayList <Empleado>();
@@ -68,6 +70,38 @@ public class Empresa implements ICrudProyecto, ICrudDepartamento {
         return false;
     }
 
+    private boolean verificarTecnicoRepetido (String idEmpleado){
+        for (Empleado empleado : listaEmpleados){
+            if (empleado instanceof Tecnico){
+                if (empleado.getIdEmpleado().equals(idEmpleado)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean verificarGerenteRepetido (String idEmpleado){
+        for (Empleado empleado : listaEmpleados){
+            if (empleado instanceof Gerente){
+                if (empleado.getIdEmpleado().equals(idEmpleado)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public void agregarDepartamentos (Departamento departamento){
+        listaDepartamentos.add(departamento);
+    }
+    public void agregarEmpleados (Empleado empleado){
+        listaEmpleados.add(empleado);
+    }
+    public void agregarProyectos (Proyecto proyecto){
+        listaProyectos.add(proyecto);
+    }
+
+    //ICrud Proyecto
     @Override
     public boolean createProyecto(String nombre, String codigo) {
         if (!verificarProyectoRepetido(nombre)){
@@ -164,4 +198,134 @@ public class Empresa implements ICrudProyecto, ICrudDepartamento {
     public List<Departamento> getDepartamentos() {
         return  new ArrayList(listaDepartamentos);
     }
+
+
+    //ICrud Gerente
+    @Override
+    public boolean createGerente(String nombre, String idEmpleado, Departamento departamento) {
+        if (!verificarGerenteRepetido(nombre)){
+            Gerente gerente = Gerente.gerentebuilder().setNombre(nombre).setIdEmpleado(idEmpleado).setDepartamento(departamento).build();
+            listaEmpleados.add(gerente);
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean updateGerente(String nombre, String idEmpleado, Departamento departamento) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Gerente){
+                if (empleado.getIdEmpleado().equals(idEmpleado) && empleado.getNombre().equals(nombre)){
+                    empleado.setNombre(nombre);
+                    empleado.setIdEmpleado(idEmpleado);
+                    empleado.setDepartamento(departamento);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteGerente(String idEmpleado) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Gerente){
+                if (empleado.getIdEmpleado().equals(idEmpleado)){
+                    listaEmpleados.remove(empleado);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Gerente getGerente(String idEmpleado) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Gerente){
+                if (empleado.getIdEmpleado().equals(idEmpleado)){
+                    return (Gerente) empleado;
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public ArrayList<Gerente> getGerentes() {
+        List<Gerente> gerentes = new ArrayList<Gerente>();
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Gerente){
+                gerentes.add((Gerente) empleado);
+            }
+        }
+        return (ArrayList<Gerente>) gerentes;
+    }
+
+
+
+
+    //ICrud Tecnico
+    @Override
+    public boolean createTecnico(String nombre, String idEmpleado, Departamento departamento) {
+        if (!verificarTecnicoRepetido(nombre)){
+            Tecnico tecnico = Tecnico.tecnicobuilder().setNombre(nombre).setIdEmpleado(idEmpleado).setDepartamento(departamento).build();
+            listaEmpleados.add(tecnico);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateTecnico(String nombre, String idEmpleado, Departamento departamento) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Tecnico){
+                if (empleado.getIdEmpleado().equals(idEmpleado) && empleado.getNombre().equals(nombre)){
+                    empleado.setNombre(nombre);
+                    empleado.setIdEmpleado(idEmpleado);
+                    empleado.setDepartamento(departamento);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteTecnico(String idEmpleado) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Tecnico){
+                if (empleado.getIdEmpleado().equals(idEmpleado)){
+                    listaEmpleados.remove(empleado);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Tecnico getTecnico(String idEmpleado) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Tecnico){
+                if (empleado.getIdEmpleado().equals(idEmpleado)){
+                    return (Tecnico) empleado;
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Tecnico> getTecnicos() {
+        List<Tecnico> tecnicos = new ArrayList<Tecnico>();
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado instanceof Tecnico){
+                tecnicos.add((Tecnico) empleado);
+            }
+        }
+        return tecnicos;
+    }
+
 }

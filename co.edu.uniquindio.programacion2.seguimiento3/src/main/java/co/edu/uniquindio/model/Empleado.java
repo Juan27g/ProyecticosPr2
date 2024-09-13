@@ -11,6 +11,7 @@ public abstract class Empleado {
     private String nombre;
     private String idEmpleado;
     private Departamento departamento;
+    private Proyecto proyecto;
 
 
     /**
@@ -55,4 +56,19 @@ public abstract class Empleado {
     }
 
     public abstract void contribuir();
+
+
+    public void asociarDepartamento(Departamento departamento) {
+        if (departamento != null) {
+            this.departamento = departamento;
+        }
+    }
+
+    public void asociarProyecto(Proyecto proyecto) {
+        if (proyecto != null) {
+            this.proyecto = proyecto;
+        }
+    }
+
+
 }
