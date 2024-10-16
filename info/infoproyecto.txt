@@ -1,0 +1,77 @@
+Fisica 2 - marco teorico.
+
+
+La base teórica de este informe se basa principalmente en los conceptos generales de fuerzas concurrentes y paralelas y la primera ley de Newton, que son de vital importancia para la realización de los experimentos realizados en el trabajo. También resulta esencial tener presentes conceptos básicos como tensión fuerza resultante. 
+
+para entender todos los temas que aborda el informa, es útil tener presente la primera ley de Newton, también conocida como ley de inercia, la cual dice que, un cuerpo en reposo o en movimiento rectilíneo uniforme permanecerá en dicho estado a menos que una fuerza externa no equilibrada actúe sobre él. En el contexto del equilibrio de fuerzas, esta ley implica que un cuerpo permanecerá en equilibrio si las fuerzas aplicadas sobre él se anulan entre sí, ya sea que el cuerpo esté en reposo o en movimiento con velocidad constante.
+
+
+Sobre un cuerpo, es común que actúen dos o más fuerzas. Según su dirección, estas pueden ser clasificadas en fuerzas concurrentes y fuerzas paralelas.
+
+Las fuerzas concurrentes son aquellas que actúan sobre un punto y pueden tener multiples direcciones.Este tipo de fuerzas se encuentra en situaciones donde varias tensiones o fuerzas confluyen en un punto y pueden equilibrarse si la suma vectorial de todas ellas es cero.
+para entender esto matemáticamnte, un sistema de fuerzas concurrentes en equilibrio, la resultante R de un conjunto de fuerzas 𝐹𝑖 es igual a la suma vectorial de estas fuerzas:
+
+formulita
+
+Cuando las fuerzas están en equilibrio, la resultante es cero:
+
+formulita =0
+
+Esto se conoce como la primera condición de equilibrio, que implica que la suma de las componentes de las fuerzas en las direcciones 𝑋 y 𝑌 también debe ser cero:
+
+formulitas
+
+
+Las fuerzas paralelas son aquellas que actuan sobre diferentes puntos de un cuerpo pero de forma paralela, es decir, de igual direccion aunque pueden tener sentidos contrarios. En situaciones donde se trabaja con fuerzas paralelas, es importante identificar no solo las magnitudes de las fuerzas, sino también sus puntos de aplicación para poder calcular su resultante.
+
+
+formulitas y textico
+
+tengo que poenr vainasa
+
+Por otra parte, la tension se puede definir como la fuerza a lo largo de una medio, como lo puede ser algun tipo de cuerda o varilla, en el momento que a esta se le aplica una fuerza que tiende a eatirarla.
+
+La fuerza resultante, es un sistema de dos o mas uerzas, ya sean concurrente o paralelas, el cual posee un valor igual a la suma vectorial de dichas fuerzas, de la siguiente manera:
+
+fromulita.
+
+su magnitud...
+
+
+El centro de fuerzas resultantes es
+
+
+
+
+----------------------------------------------------------------------------------
+
+				LABORATORIO  6
+----------------------------------------------------------------------------------
+
+La fuerza normal es la fuerza que realizan todas las superficies a los cuerpos que están apoyados en ellas, es decir, la fuerza que ejerce una superficie sobre un objeto en contacto con ella, actuando perpendicularmente a la superficie. Es una respuesta de la superficie a la acción de otras fuerzas que intentan empujar el objeto hacia la misma.
+
+Matemáticamente, para un objeto en reposo sobre una superficie plana horizontal, la fuerza normal N es igual al peso del objeto, dado por:
+
+𝑁
+=
+𝑚
+⋅
+𝑔
+N=m⋅g
+donde 
+𝑚
+m es la masa del objeto y 
+𝑔
+g es la aceleración debida a la gravedad.
+
+
+
+
+La fuerza de rozamiento, también conocida como fuerza de fricción, se da cuando hay dos cuerpos en contacto. Es la fuerza que se opone al movimiento relativo entre dos superficies en contacto. Depende tanto de la naturaleza de las superficies como de la fuerza con la que se presionan una contra la otra (fuerza normal). Existen dos tipos principales de fuerza de rozamiento:
+
+Rozamiento estático: Actúa cuando no hay movimiento relativo entre las superficies.
+Rozamiento dinámico: Actúa cuando las superficies están en movimiento relativo.
+La dirección de la fuerza de rozamiento siempre es opuesta al movimiento o a la tendencia de movimiento del cuerpo.
+
+
+
