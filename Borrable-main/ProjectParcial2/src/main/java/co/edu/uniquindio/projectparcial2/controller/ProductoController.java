@@ -34,4 +34,9 @@ public class ProductoController implements IProductoControllerService {
     public boolean actualizarProducto(String idActual, ProductoDto productoDto) {
         return modelFactory.actualizarProducto(idActual, productoDto);
     }
+
+    @Override
+    public void getProductosEnRango(int inferior, int superior) {
+        modelFactory.getProductosEnRango(inferior, superior);
+    }
 }

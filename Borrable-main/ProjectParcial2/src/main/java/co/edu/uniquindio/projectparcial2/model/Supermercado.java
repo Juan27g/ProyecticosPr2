@@ -1,5 +1,6 @@
 package co.edu.uniquindio.projectparcial2.model;
 
+import co.edu.uniquindio.projectparcial2.controller.CarritoController;
 import co.edu.uniquindio.projectparcial2.mapping.dto.ProductoDto;
 import co.edu.uniquindio.projectparcial2.service.ICrudProducto;
 
@@ -85,7 +86,23 @@ public class Supermercado implements ICrudProducto {
     }
     return false;
   }
-
+  public void buscarProductosEnRango(int inferior, int superior){
+    int cont=0;
+    for (Producto producto : listProductos) {
+      if (producto.getPrecio()>=inferior && producto.getPrecio()<=superior){
+          cont++;
+      }
+    }
+    System.out.println("Numero de productos en el rango de "+inferior+"/"+superior+" : "+cont);
+  }
+  public void pagarCarrito(String id){
+    for (CarritoCompras compras : listCarritoCompras) {
+      if (compras.getIdCarrito().equals(id)) {
+        System.out.println(compras.toString());
+        break;
+      }
+    }
+  }
 //------------------------------- CRUD PRODUCTO -----------------------
 
 

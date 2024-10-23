@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="526.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.projectparcial2.viewcontroller.ProductoViewController">
+<AnchorPane prefHeight="526.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.projectparcial2.viewcontroller.ProductoViewController">
    <children>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="526.0" prefWidth="455.0">
         <items>
@@ -46,6 +46,7 @@
                   <TextField fx:id="txtCantDisponible" layoutX="108.0" layoutY="151.0" prefHeight="26.0" prefWidth="268.0" />
                   <Button fx:id="btnActualizar" layoutX="227.0" layoutY="204.0" mnemonicParsing="false" onAction="#onActualizarProducto" text="Actualizar" />
                   <Button fx:id="btnAgregarProducto" layoutX="322.0" layoutY="204.0" mnemonicParsing="false" onAction="#onAgregarProducto" text="Agregar" />
+                  <Button fx:id="btnPatron" layoutX="65.0" layoutY="204.0" mnemonicParsing="false" onAction="#clickPatron" text="PatronFacade" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="351.0" prefWidth="503.0">

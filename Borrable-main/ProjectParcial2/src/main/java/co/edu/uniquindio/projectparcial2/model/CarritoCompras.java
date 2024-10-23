@@ -10,6 +10,14 @@ public class CarritoCompras {
 
     public CarritoCompras() {
     }
+    public CarritoCompras(String idCarrito, Cliente cliente) {
+        this.idCarrito = idCarrito;
+        this.cliente = cliente;
+    }
+
+    public void agregarProducto(Producto producto) {
+        listProductos.add(producto);
+    }
 
     public CarritoCompras(String idCarrito) {
         this.idCarrito = idCarrito;

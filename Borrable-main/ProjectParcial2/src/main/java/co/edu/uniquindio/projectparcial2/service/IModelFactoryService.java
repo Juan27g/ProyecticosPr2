@@ -9,4 +9,6 @@ public interface IModelFactoryService {
     boolean agregarProducto(ProductoDto producto);
     boolean eliminarProducto(String idProducto);
     boolean actualizarProducto(String idActual, ProductoDto producto);
+    void getProductosEnRango(int inferior, int superior);
+    void pagarCarrito(String id);
 }

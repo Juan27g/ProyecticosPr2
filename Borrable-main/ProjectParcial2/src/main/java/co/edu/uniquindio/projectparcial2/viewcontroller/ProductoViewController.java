@@ -3,8 +3,10 @@ package co.edu.uniquindio.projectparcial2.viewcontroller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.projectparcial2.controller.CarritoController;
 import co.edu.uniquindio.projectparcial2.controller.ProductoController;
 import co.edu.uniquindio.projectparcial2.mapping.dto.ProductoDto;
+import co.edu.uniquindio.projectparcial2.model.Facade.FacadeVariado;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -21,6 +23,7 @@ public class ProductoViewController {
   ProductoController productoController;
   ObservableList<ProductoDto> listProductosDto = FXCollections.observableArrayList();
   ProductoDto selectedProducto;
+  CarritoController carritoController;
 
   @FXML
   private ResourceBundle resources;
@@ -68,6 +71,16 @@ public class ProductoViewController {
   private TextField txtPrecio;
 
   @FXML
+  private Button btnPatron;
+
+  @FXML
+  void clickPatron(ActionEvent event) {
+      productoController.getProductosEnRango(1,3);
+      carritoController.pagarCarrito("00");
+
+  }
+
+  @FXML
   void onActualizarProducto(ActionEvent event) {
     actualizarProducto();
   }
@@ -90,7 +103,7 @@ public class ProductoViewController {
   @FXML
   void initialize() {
     productoController = new ProductoController();
-
+    carritoController = new CarritoController();
     initView();
   }
 
